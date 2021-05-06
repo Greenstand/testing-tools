@@ -4,4 +4,4 @@ Configure your aws credentials using
 ```aws configure --profile treetracker-test-env ```
 
 Call the script using
-```./upload.sh```
+```source upload.sh```

@@ -45,7 +45,7 @@
             "planter_identifier": "3132687669",
             "planter_photo_url": "https://treetracker-test-images.s3.eu-central-1.amazonaws.com/2021.05.05.17.31.01_37.84484365830691_-122.25713796559505_3bda799d-4016-48c0-b48b-d50ac61147da_IMG_20210505_173028_4360056516996564885.jpg",
             "sequence_id": 7,
-            "timestamp": 1620261055,
+            "timestamp": CAPTURE_TIMESTAMP,
             "user_id": 10,
             "uuid": "CAPTURE_UUID_VALUE"
         }

@@ -1,0 +1,14 @@
+{
+  "pack_format_version": 2,
+  "messages": [
+    {
+      "message_uuid": "MESSAGE_UUID",
+      "author_handle": "example_sender",
+      "recipient_handle": "example_recipient",
+      "body": "message body",
+      "composed_at": "MESSAGE_TIMESTAMP",
+      "survey_id": "SURVEY_UUID",
+      "answers": ["answer1", "answer2"]
+    }
+  ]
+}

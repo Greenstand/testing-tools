@@ -1,0 +1,28 @@
+{
+  "pack_format_version": 2,
+  "captures": [
+    {
+      "id": "CAPTURE_UUID",
+      "session_id": "55d1a2bc-c7ca-4321-8177-421280f316b7",
+      "lat": 37.84492259,
+      "lon": -122.2571481,
+      "gps_accuracy": 12,
+      "note": "",
+      "image_url": "https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg",
+      "created_at": "CAPTURE_TIMESTAMP",
+      "abs_step_count": 1,
+      "delta_step_count": 1,
+      "rotation_matrix": "0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0",
+      "extra_attributes": [
+        {
+          "key": "height",
+          "value": 1.0
+        },
+        {
+          "key": "dbh",
+          "value": 1.0
+        }
+      ]
+    }
+  ]
+}

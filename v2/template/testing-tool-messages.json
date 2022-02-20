@@ -8,7 +8,7 @@
       "body": "message body",
       "composed_at": "MESSAGE_TIMESTAMP",
       "survey_id": "SURVEY_UUID",
-      "answers": ["answer1", "answer2"]
+      "answers": ["testing-tool", "is working"]
     }
   ]
 }

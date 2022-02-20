@@ -1,0 +1,7 @@
+# Testing tool to insert data into data pipeline
+
+Configure your aws credentials using
+```aws configure --profile treetracker-dev-env ```
+
+Call the script using
+```ENV=dev source upload.sh```

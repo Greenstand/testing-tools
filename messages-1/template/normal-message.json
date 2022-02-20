@@ -1,0 +1,17 @@
+{
+  "pack_format_version": "2",
+  "wallet_registrations": null,
+  "sessions" : null,
+  "device_configurations" : null,
+  "captures" : null,
+  "messages" : [
+      {
+         "message_uuid" : "MESSAGE_UUID_VALUE",
+         "author_handle" : "868.269.9423 x0893",
+         "recipient_handle" : "admin",
+         "subject" : "Tree question",
+         "body" : "I have a tree question",
+         "composed_at": "2022-02-15T22:59:23+0000"
+      }
+   ]
+}

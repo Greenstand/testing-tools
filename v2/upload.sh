@@ -1,12 +1,12 @@
 #!/bin/bash
 set -e
-MESSAGE_UUID=$(python uuid4.py)
-SURVEY_UUID=$(python uuid4.py)
-DEVICE_CONFIGURATION_UUID=$(python uuid4.py)
-CAPTURE_UUID=$(python uuid4.py)
-SESSION_UUID=$(python uuid4.py)
-WALLET_REGISTRATION_UUID=$(python uuid4.py)
-EPOCH=$(python iso8601.py)
+MESSAGE_UUID=$(python scripts/uuid4.py)
+SURVEY_UUID=$(python scripts/uuid4.py)
+DEVICE_CONFIGURATION_UUID=$(python scripts/uuid4.py)
+CAPTURE_UUID=$(python scripts/uuid4.py)
+SESSION_UUID=$(python scripts/uuid4.py)
+WALLET_REGISTRATION_UUID=$(python scripts/uuid4.py)
+EPOCH=$(python scripts/iso8601.py)
 
 printf "%30s %s\n" "message_id:" $MESSAGE_UUID
 printf "%30s %s\n" "survey_id:" $SURVEY_UUID
@@ -97,3 +97,13 @@ aws s3 cp --profile treetracker-$ENV-env \
 echo
 
 echo "Finished sending data to aws"
+
+echo
+. ./scripts/create-cron-job.sh
+echo
+
+echo "waiting for cron job to finish..."
+sleep 5
+echo
+
+. ./scripts/request-data.sh

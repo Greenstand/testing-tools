@@ -2,7 +2,7 @@
   "pack_format_version": 2,
   "device_configurations": [
     {
-      "id": "DEVICE_CONFIG_UUID",
+      "id": "DEVICE_CONFIGURATION_UUID",
       "brand": "google",
       "model": "Pixel",
       "device": "sailfish",

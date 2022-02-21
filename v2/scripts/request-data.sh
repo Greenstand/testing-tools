@@ -1,28 +1,17 @@
-
 echo "checking api routes"
 host=https://dev-k8s.treetracker.org
 
-echo "checking capture"
-curl "${host}/field-data/raw-captures/${CAPTURE_UUID}" || true
-echo
-echo
+captures_url=${host}/field-data/raw-captures/${CAPTURE_UUID}
+device_configuration_url=${host}/field-data/device-configuration/${DEVICE_CONFIGURATION_UUID}
+wallet_registration_url=${host}/field-data/wallet-registration/${WALLET_REGISTRATION_UUID}
+sessions_url=${host}/field-data/session/${SESSION_UUID}
+message_url=${host}/messaging/message/${MESSAGE_UUID}
 
-echo "checking dev config"
-curl "${host}/field-data/device-configuration/${DEVICE_CONFIGURATION_UUID}" || true
-echo
-echo
-
-echo "checking wallet reg"
-curl "${host}/field-data/wallet-registration/${WALLET_REGISTRATIONS_UUID}" || true
-echo
-echo
-
-echo "checking session"
-curl "${host}/field-data/session/${SESSIONS_UUID}" || true
-echo
-echo
-
-echo "checking message"
-curl "${host}/messaging/message/${MESSAGE_UUID}" || true
-echo
-echo
+for url in \
+  $captures_url, $device_configuration_url, $wallet_registration_url, $sessions_url, $message_url; do
+  echo "route: ${url}"
+  # return true to continue script
+  curl $url || true
+  echo
+  echo
+done

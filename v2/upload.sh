@@ -61,13 +61,8 @@ sed "s/SESSION_UUID/$SESSION_UUID/" \
   template/testing-tool-sessions.json \
   >prepared/testing-tool-sessions.json
 
-<<<<<<< Updated upstream
-sed -i "s/DEVICE_CONFIGURATION_UUID/$DEVICE_CONFIGURATION_UUID/" \
-	prepared/testing-tool-sessions.json
-=======
 sed -i '' "s/DEVICE_CONFIG_UUID/$DEVICE_CONFIG_UUID/" \
   prepared/testing-tool-sessions.json
->>>>>>> Stashed changes
 
 # upload it
 

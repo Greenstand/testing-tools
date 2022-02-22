@@ -3,7 +3,7 @@
   "sessions": [
     {
       "id": "SESSION_UUID",
-      "device_configuration_id": "DEVICE_CONFIG_UUID",
+      "device_configuration_id": "DEVICE_CONFIGURATION_UUID",
       "wallet": "3132687369",
       "check_in_photo_url": "https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg",
       "target_wallet": "somewallet",

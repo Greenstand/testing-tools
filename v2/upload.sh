@@ -1,16 +1,16 @@
 #!/bin/bash
 set -e
-MESSAGE_UUID=$(python uuid4.py)
-SURVEY_UUID=$(python uuid4.py)
-DEVICE_CONFIG_UUID=$(python uuid4.py)
-CAPTURE_UUID=$(python uuid4.py)
-SESSION_UUID=$(python uuid4.py)
-WALLET_REGISTRATION_UUID=$(python uuid4.py)
-EPOCH=$(python iso8601.py)
+MESSAGE_UUID=$(python scripts/uuid4.py)
+SURVEY_UUID=$(python scripts/uuid4.py)
+DEVICE_CONFIGURATION_UUID=$(python scripts/uuid4.py)
+CAPTURE_UUID=$(python scripts/uuid4.py)
+SESSION_UUID=$(python scripts/uuid4.py)
+WALLET_REGISTRATION_UUID=$(python scripts/uuid4.py)
+EPOCH=$(python scripts/iso8601.py)
 
 printf "%30s %s\n" "message_id:" $MESSAGE_UUID
 printf "%30s %s\n" "survey_id:" $SURVEY_UUID
-printf "%30s %s\n" "device_config_id:" $DEVICE_CONFIG_UUID
+printf "%30s %s\n" "device_config_id:" $DEVICE_CONFIGURATION_UUID
 printf "%30s %s\n" "session_id:" $SESSION_UUID
 printf "%30s %s\n" "wallet_registration_id:" $WALLET_REGISTRATION_UUID
 printf "%30s %s\n" "capture_id:" $CAPTURE_UUID
@@ -34,8 +34,8 @@ sed "s/WALLET_REGISTRATION_UUID/$WALLET_REGISTRATION_UUID/" \
 sed -i "s/WALLET_REGISTRATION_TIMESTAMP/$EPOCH/" \
   prepared/testing-tool-wallet-registrations.json
 
-sed -i "s/DEVICE_CONFIG_UUID/$DEVICE_CONFIG_UUID/" \
-  prepared/testing-tool-wallet-registrations.json
+sed -i "s/DEVICE_CONFIGURATION_UUID/$DEVICE_CONFIGURATION_UUID/" \
+	prepared/testing-tool-wallet-registrations.json
 
 # prepare captures data
 sed "s/CAPTURE_UUID/$CAPTURE_UUID/" \
@@ -49,9 +49,9 @@ sed -i "s/CAPTURE_TIMESTAMP/$EPOCH/" \
   prepared/testing-tool-captures.json
 
 # prepare device config data
-sed "s/DEVICE_CONFIG_UUID/$DEVICE_CONFIG_UUID/" \
-  template/testing-tool-device-configurations.json \
-  >prepared/testing-tool-device-configurations.json
+sed "s/DEVICE_CONFIGURATION_UUID/$DEVICE_CONFIGURATION_UUID/" \
+	template/testing-tool-device-configurations.json \
+	>prepared/testing-tool-device-configurations.json
 
 sed -i "s/DEVICE_CONFIG_TIMESTAMP/$EPOCH/" \
   prepared/testing-tool-device-configurations.json
@@ -61,8 +61,8 @@ sed "s/SESSION_UUID/$SESSION_UUID/" \
   template/testing-tool-sessions.json \
   >prepared/testing-tool-sessions.json
 
-sed -i "s/DEVICE_CONFIG_UUID/$DEVICE_CONFIG_UUID/" \
-  prepared/testing-tool-sessions.json
+sed -i "s/DEVICE_CONFIGURATION_UUID/$DEVICE_CONFIGURATION_UUID/" \
+	prepared/testing-tool-sessions.json
 
 # upload it
 
@@ -97,3 +97,13 @@ aws s3 cp --profile treetracker-$ENV-env \
 echo
 
 echo "Finished sending data to aws"
+
+echo
+. ./scripts/create-cron-job.sh
+echo
+
+echo "waiting for cron job to finish..."
+sleep 5
+echo
+
+. ./scripts/request-data.sh

@@ -1,11 +1,16 @@
 #!/bin/bash
 set -e
-MESSAGE_UUID=$(python scripts/uuid4.py)
-SURVEY_UUID=$(python scripts/uuid4.py)
-DEVICE_CONFIGURATION_UUID=$(python scripts/uuid4.py)
-CAPTURE_UUID=$(python scripts/uuid4.py)
-SESSION_UUID=$(python scripts/uuid4.py)
-WALLET_REGISTRATION_UUID=$(python scripts/uuid4.py)
+
+generate_uuid() {
+  echo $(python scripts/uuid4.py)
+}
+
+MESSAGE_UUID=$(generate_uuid)
+SURVEY_UUID=$(generate_uuid)
+DEVICE_CONFIGURATION_UUID=$(generate_uuid)
+CAPTURE_UUID=$(generate_uuid)
+SESSION_UUID=$(generate_uuid)
+WALLET_REGISTRATION_UUID=$(generate_uuid)
 EPOCH=$(python scripts/iso8601.py)
 
 printf "%30s %s\n" "message_id:" $MESSAGE_UUID
@@ -14,6 +19,7 @@ printf "%30s %s\n" "device_config_id:" $DEVICE_CONFIGURATION_UUID
 printf "%30s %s\n" "session_id:" $SESSION_UUID
 printf "%30s %s\n" "wallet_registration_id:" $WALLET_REGISTRATION_UUID
 printf "%30s %s\n" "capture_id:" $CAPTURE_UUID
+printf "%30s %s\n" "timestamp:" $EPOCH
 
 # prepare messages data
 sed "s/MESSAGE_UUID/$MESSAGE_UUID/" \
@@ -65,7 +71,6 @@ sed -i '' "s/DEVICE_CONFIG_UUID/$DEVICE_CONFIG_UUID/" \
   prepared/testing-tool-sessions.json
 
 # upload it
-
 echo "Sending captures data..."
 aws s3 cp --profile treetracker-$ENV-env \
   prepared/testing-tool-captures.json \

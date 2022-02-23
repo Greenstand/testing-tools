@@ -22,53 +22,24 @@ printf "%30s %s\n" "capture_id:" $CAPTURE_UUID
 printf "%30s %s\n" "timestamp:" $EPOCH
 
 # prepare messages data
-sed "s/MESSAGE_UUID/$MESSAGE_UUID/" \
-  template/testing-tool-messages.json \
-  >prepared/testing-tool-messages.json
-
-sed -i '' "s/SURVEY_UUID/$SURVEY_UUID/" \
-  prepared/testing-tool-messages.json
-
-sed -i '' "s/MESSAGE_TIMESTAMP/$EPOCH/" \
-  prepared/testing-tool-messages.json
+python scripts/prepare-messages.py \
+  $MESSAGE_UUID $SURVEY_UUID $EPOCH
 
 # prepare wallet registration data
-sed "s/WALLET_REGISTRATION_UUID/$WALLET_REGISTRATION_UUID/" \
-  template/testing-tool-wallet-registrations.json \
-  >prepared/testing-tool-wallet-registrations.json
-
-sed -i '' "s/WALLET_REGISTRATION_TIMESTAMP/$EPOCH/" \
-  prepared/testing-tool-wallet-registrations.json
-
-sed -i '' "s/DEVICE_CONFIGURATION_UUID/$DEVICE_CONFIGURATION_UUID/" \
-	prepared/testing-tool-wallet-registrations.json
+python scripts/prepare-wallet-registrations.py \
+  $WALLET_REGISTRATION_UUID $DEVICE_CONFIGURATION_UUID $EPOCH
 
 # prepare captures data
-sed "s/CAPTURE_UUID/$CAPTURE_UUID/" \
-  template/testing-tool-captures.json \
-  >prepared/testing-tool-captures.json
-
-sed -i '' "s/SESSION_UUID/$SESSION_UUID/" \
-  prepared/testing-tool-captures.json
-
-sed -i '' "s/CAPTURE_TIMESTAMP/$EPOCH/" \
-  prepared/testing-tool-captures.json
+python scripts/prepare-captures.py \
+  $CAPTURE_UUID $SESSION_UUID $EPOCH
 
 # prepare device config data
-sed "s/DEVICE_CONFIGURATION_UUID/$DEVICE_CONFIGURATION_UUID/" \
-	template/testing-tool-device-configurations.json \
-	>prepared/testing-tool-device-configurations.json
-
-sed -i '' "s/DEVICE_CONFIG_TIMESTAMP/$EPOCH/" \
-  prepared/testing-tool-device-configurations.json
+python scripts/prepare-device-configurations.py \
+  $DEVICE_CONFIGURATION_UUID $EPOCH
 
 # prepare sessions data
-sed "s/SESSION_UUID/$SESSION_UUID/" \
-  template/testing-tool-sessions.json \
-  >prepared/testing-tool-sessions.json
-
-sed -i '' "s/DEVICE_CONFIG_UUID/$DEVICE_CONFIG_UUID/" \
-  prepared/testing-tool-sessions.json
+python scripts/prepare-sessions.py \
+  $SESSION_UUID $DEVICE_CONFIGURATION_UUID
 
 # upload it
 echo "Sending captures data..."

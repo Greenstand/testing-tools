@@ -1,12 +1,12 @@
 {
-  "pack_format_version": 2,
+  "pack_format_version": "2",
   "wallet_registrations": [
     {
       "id": "WALLET_REGISTRATION_UUID",
-      "device_configuration_id": "6339b299-b4ac-4e14-bc42-1b3e355e207d",
       "wallet": "3132687369",
       "user_photo_url": "https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg",
-      "name": "matt oaks",
+      "first_name": "matt",      
+      "last_name": "oaks",
       "phone": "12312312",
       "email": "kolz@obk.com",
       "lat": 37.84492259,

@@ -8,10 +8,10 @@ sessions_url=${host}/field-data/session/${SESSION_UUID}
 message_url=${host}/messaging/message/${MESSAGE_UUID}
 
 for url in \
-  $captures_url, $device_configuration_url, $wallet_registration_url, $sessions_url, $message_url; do
+  $wallet_registration_url $device_configuration_url $sessions_url $captures_url $message_url; do
   echo "route: ${url}"
   # return true to continue script
-  curl $url || true
+  curl $url
   echo
   echo
 done

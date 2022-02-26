@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @bulk_tree_upload %>
+
+<div>
+  <%= link_to "Edit this bulk tree upload", edit_bulk_tree_upload_path(@bulk_tree_upload) %> |
+  <%= link_to "Back to bulk tree uploads", bulk_tree_uploads_path %>
+
+  <%= button_to "Destroy this bulk tree upload", @bulk_tree_upload, method: :delete %>
+</div>

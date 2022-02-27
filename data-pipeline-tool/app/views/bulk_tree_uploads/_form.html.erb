@@ -1,0 +1,27 @@
+<%= form_with(model: bulk_tree_upload) do |form| %>
+  <% if bulk_tree_upload.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bulk_tree_upload.errors.count, "error") %> prohibited this bulk_tree_upload from being saved:</h2>
+
+      <ul>
+        <% bulk_tree_upload.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :key, style: "display: block" %>
+    <%= form.text_field :key %>
+  </div>
+
+  <div>
+    <%= form.label :processed, style: "display: block" %>
+    <%= form.check_box :processed %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

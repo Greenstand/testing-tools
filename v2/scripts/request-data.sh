@@ -10,7 +10,6 @@ message_url=${host}/messaging/message/${MESSAGE_UUID}
 for url in \
   $wallet_registration_url $device_configuration_url $sessions_url $captures_url $message_url; do
   echo "route: ${url}"
-  # return true to continue script
   curl $url
   echo
   echo

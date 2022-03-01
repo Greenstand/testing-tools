@@ -1,11 +1,12 @@
 {
-  "pack_format_version": 2,
+  "pack_format_version": "2",
   "messages": [
     {
       "message_uuid": "MESSAGE_UUID",
       "author_handle": "example_sender",
       "recipient_handle": "example_recipient",
       "body": "message body",
+      "subject":"subject of the message" 
       "composed_at": "MESSAGE_TIMESTAMP",
       "survey_id": "SURVEY_UUID",
       "answers": ["testing-tool", "is working"]

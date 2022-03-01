@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Bulk tree uploads</h1>
+
+<div id="bulk_tree_uploads">
+<%= will_paginate @bulk_tree_uploads %>
+  <% @bulk_tree_uploads.each do |bulk_tree_upload| %>
+    <%= render bulk_tree_upload %>
+    <p>
+      <a href="http://jsonviewer.stack.hu/#http://treetracker-dev-batch-uploads.s3-website.eu-central-1.amazonaws.com/<%= bulk_tree_upload.key %>" target="_blank" >Show this bulk tree upload</a>
+    </p>
+  <% end %>
+<%= will_paginate @bulk_tree_uploads %>
+</div>
+
+<%= link_to "New bulk tree upload", new_bulk_tree_upload_path %>

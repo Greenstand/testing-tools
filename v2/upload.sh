@@ -54,15 +54,15 @@ aws s3 cp --profile treetracker-$ENV-env \
   s3://treetracker-$ENV-batch-uploads
 echo
 
-echo "Sending sessions data..."
-aws s3 cp --profile treetracker-$ENV-env \
-  prepared/testing-tool-sessions.json \
-  s3://treetracker-$ENV-batch-uploads
-echo
-
 echo "Sending device configurations data..."
 aws s3 cp --profile treetracker-$ENV-env \
   prepared/testing-tool-device-configurations.json \
+  s3://treetracker-$ENV-batch-uploads
+echo
+
+echo "Sending sessions data..."
+aws s3 cp --profile treetracker-$ENV-env \
+  prepared/testing-tool-sessions.json \
   s3://treetracker-$ENV-batch-uploads
 echo
 

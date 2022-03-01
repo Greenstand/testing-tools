@@ -2,7 +2,7 @@
 set -e
 
 generate_uuid() {
-  echo $(python scripts/uuid4.py)
+  echo $(python3 scripts/uuid4.py)
 }
 
 MESSAGE_UUID=$(generate_uuid)
@@ -11,7 +11,7 @@ DEVICE_CONFIGURATION_UUID=$(generate_uuid)
 CAPTURE_UUID=$(generate_uuid)
 SESSION_UUID=$(generate_uuid)
 WALLET_REGISTRATION_UUID=$(generate_uuid)
-EPOCH=$(python scripts/iso8601.py)
+EPOCH=$(python3 scripts/iso8601.py)
 
 printf "%30s %s\n" "message_id:" $MESSAGE_UUID
 printf "%30s %s\n" "survey_id:" $SURVEY_UUID
@@ -22,23 +22,23 @@ printf "%30s %s\n" "capture_id:" $CAPTURE_UUID
 printf "%30s %s\n" "timestamp:" $EPOCH
 
 # prepare messages data
-python scripts/prepare-messages.py \
+python3 scripts/prepare-messages.py \
   $MESSAGE_UUID $SURVEY_UUID $EPOCH
 
 # prepare wallet registration data
-python scripts/prepare-wallet-registrations.py \
+python3 scripts/prepare-wallet-registrations.py \
   $WALLET_REGISTRATION_UUID $DEVICE_CONFIGURATION_UUID $EPOCH
 
 # prepare captures data
-python scripts/prepare-captures.py \
+python3 scripts/prepare-captures.py \
   $CAPTURE_UUID $SESSION_UUID $EPOCH
 
 # prepare device config data
-python scripts/prepare-device-configurations.py \
+python3 scripts/prepare-device-configurations.py \
   $DEVICE_CONFIGURATION_UUID $EPOCH
 
 # prepare sessions data
-python scripts/prepare-sessions.py \
+python3 scripts/prepare-sessions.py \
   $SESSION_UUID $DEVICE_CONFIGURATION_UUID
 
 # upload it

@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
-MESSAGE_UUID_VALUE=`python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
+MESSAGE_UUID_VALUE=`python3 -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
 EPOCH=`date +%s`
 rm prepared/*.json
 sed "s/MESSAGE_UUID_VALUE/$MESSAGE_UUID_VALUE/" template/survey-message.json > prepared/$EPOCH-testing-tool-survey-message.json
 
-MESSAGE_UUID_VALUE=`python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
+MESSAGE_UUID_VALUE=`python3 -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
 sed "s/MESSAGE_UUID_VALUE/$MESSAGE_UUID_VALUE/" template/normal-message.json > prepared/$EPOCH-testing-tool-normal-message.json
 
 #upload it

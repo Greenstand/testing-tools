@@ -1,5 +1,5 @@
 {
-  "pack_format_version": 2,
+  "pack_format_version": "2",
   "device_configurations": [
     {
       "id": "DEVICE_CONFIGURATION_UUID",
@@ -9,7 +9,6 @@
       "serial": "unknown",
       "hardware": "sailfish",
       "app_build": 111,
-      "instance_id": "dndz8wECMK8",
       "app_version": "1.2.8",
       "manufacturer": "Google",
       "os_version": "9",

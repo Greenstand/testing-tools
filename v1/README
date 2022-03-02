@@ -1,0 +1,10 @@
+# Testing tool to insert v1 data into data pipeline
+
+Install nodejs dependencies
+```cd scripts; npm install ```
+
+Configure your aws credentials using
+```aws configure --profile treetracker-dev-env ```
+
+Call the script using
+```ENV=dev source upload.sh```

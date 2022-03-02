@@ -1,0 +1,18 @@
+{
+  "devices": [
+    {
+      "brand": "HUAWEI",
+      "model": "JKM-LX3",
+      "device": "HWJKM-H",
+      "serial": "unknown",
+      "hardware": "kirin710",
+      "app_build": 129,
+      "instanceId": "dbyHiKQSQUaIJSTPMwi-bh",
+      "app_version": "1.4.2",
+      "manufacturer": "HUAWEI",
+      "androidRelease": "9",
+      "androidSdkVersion": 28,
+      "device_identifier": "DEVICE_IDENTIFIER"
+    }
+  ]
+}

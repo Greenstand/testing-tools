@@ -5,3 +5,20 @@ Configure your aws credentials using
 
 Call the script using
 ```ENV=dev source upload.sh```
+
+
+## Send reply to message
+
+```
+python3 send-message-reply.py <recipient_handle> <sender_handle> <message_body> 
+```
+
+This script will get the most recent message from `recipient_handle` and generate a response message from `sender_handle` with `message_body`.
+
+The three arguments are optional and will be replaced with default values if not provided.
+
+### default arguments
+
+- recipient_handle: `handle2`
+- sender_handle: `handle3`
+- message_body: `testing-tool message body`

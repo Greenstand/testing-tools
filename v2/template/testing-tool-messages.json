@@ -8,8 +8,8 @@
       "body": "message body",
       "subject": "subject of the message",
       "composed_at": "MESSAGE_TIMESTAMP",
-      "survey_id": "6e7e086d-16c6-4910-ac70-815da2f88679",
-      "answers": ["testing-tool", "is working"]
+      "answers": ["testing-tool", "is working"],
+      "type": "message"
     }
   ]
 }

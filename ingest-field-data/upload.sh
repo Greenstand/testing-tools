@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-CAPTURE_UUID_VALUE=`python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
-REGISTRATION_UUID_VALUE=`python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
+CAPTURE_UUID_VALUE=`python3 -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
+REGISTRATION_UUID_VALUE=`python3 -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)'`
 EPOCH=`date +%s`
 sed "s/CAPTURE_UUID_VALUE/$CAPTURE_UUID_VALUE/" template/testing-tool-captures.json > prepared/testing-tool-captures.json
 sed "s/REGISTRATION_UUID_VALUE/$REGISTRATION_UUID_VALUE/" template/testing-tool-registrations.json > prepared/testing-tool-registrations.json

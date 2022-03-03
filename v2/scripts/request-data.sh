@@ -13,7 +13,6 @@ v1_captures_url=${host}/webmap/tree?uuid=${CAPTURE_UUID}
 for url in \
   $wallet_registration_url $device_configuration_url $sessions_url $captures_url $message_url $v1_captures_url; do
   echo "route: ${url}"
-  # return true to continue script
   curl $url
   echo
   echo

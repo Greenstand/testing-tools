@@ -15,38 +15,25 @@ printf "%30s %s\n" "session_uuid:" $SESSION_UUID
 
 # prepare registration data
 planterTimestamp=$(date '+%s')
-sed "s/PLANTER_IDENTIFIER/$PLANTER_IDENTIFIER/" \
-  template/testing-tool-registrations.json \
-  >prepared/$planterTimestamp-testing-tool-registrations.json
 
-sed -i'' "s/DEVICE_IDENTIFIER/$DEVICE_IDENTIFIER/" \
-  prepared/$planterTimestamp-testing-tool-registrations.json
+python3 scripts/prepare-registrations.py \
+  $PLANTER_IDENTIFIER $DEVICE_IDENTIFIER $planterTimestamp
 
 sleep 1
 
 # prepare device config data
 deviceTimestamp=$(date '+%s')
-sed "s/DEVICE_IDENTIFIER/$DEVICE_IDENTIFIER/" \
-	template/testing-tool-devices.json \
-	>prepared/$deviceTimestamp-testing-tool-devices.json
+
+python3 scripts/prepare-devices.py \
+  $DEVICE_IDENTIFIER $deviceTimestamp
 
 sleep 1
 
 # prepare trees data
 treeTimestamp=$(date '+%s')
-sed "s/TREE_UUID/$TREE_UUID/" \
-  template/testing-tool-trees.json \
-  >prepared/$treeTimestamp-testing-tool-trees.json
 
-sed -i'' "s/DEVICE_IDENTIFIER/$DEVICE_IDENTIFIER/" \
-  prepared/$treeTimestamp-testing-tool-trees.json
-
-sed -i'' "s/PLANTER_IDENTIFIER/$PLANTER_IDENTIFIER/" \
-  prepared/$treeTimestamp-testing-tool-trees.json
-
-sed -i'' "s/TREE_TIMESTAMP/$TIMESTAMP/" \
-  prepared/$treeTimestamp-testing-tool-trees.json
-
+python3 scripts/prepare-trees.py \
+  $TREE_UUID $DEVICE_IDENTIFIER $PLANTER_IDENTIFIER $TIMESTAMP $treeTimestamp
 
 # upload it
 
@@ -72,10 +59,6 @@ echo "Finished sending data to aws"
 
 echo
 . ./scripts/create-cron-job.sh
-echo
-
-echo "waiting for cron job to finish..."
-sleep 5
 echo
 
 . ./scripts/request-data.sh

@@ -1,0 +1,4 @@
+# Script to insert production data into test data pipeline
+
+Call the script using
+`TIMEOUT=number_of_seconds PROD_AWS_PROFILE=production_aws_profile TEST_AWS_PROFILE=test_aws_profile source migrate.sh`

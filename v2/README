@@ -10,12 +10,12 @@ Call the script using
 ## Send reply to message
 
 ```
-python3 send-message-reply.py <recipient_handle> <sender_handle> <message_body> 
+python3 send-message-reply.py <recipient_handle> <sender_handle> <message_body> <survey_response_question_1> <survey_response_question_2> <survey_response_question_3> 
 ```
 
 This script will get the most recent message from `recipient_handle` and generate a response message from `sender_handle` with `message_body`.
 
-The three arguments are optional and will be replaced with default values if not provided.
+All arguments are optional and will be replaced with default values if not provided.
 
 ### default arguments
 

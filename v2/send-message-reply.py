@@ -22,6 +22,21 @@ try:
 except:
     messageBody = "testing-tools message body"
 
+try:
+    surveyResponse1 = sys.argv[4]
+except:
+    surveyResponse1 = "No response entered"
+
+try:
+    surveyResponse2 = sys.argv[5]
+except:
+    surveyResponse2 = "No response entered"
+
+try:
+    surveyResponse3 = sys.argv[6]
+except:
+    surveyResponse3 = "No response entered"
+
 
 # -- get latest message --
 
@@ -51,6 +66,7 @@ print(json.dumps(latestMessage, indent=2, sort_keys=True))
 message = {}
 if latestMessage['survey'] is not None:
   message["survey_id"] = latestMessage['survey']['id']
+  message["survey_response"] = [surveyResponse1, surveyResponse2, surveyResponse3]
 message["type"] = "message"
 message["recipient_handle"] = recipientHandle
 message["author_handle"] = authorHandle

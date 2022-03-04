@@ -3,9 +3,10 @@ import sys
 
 id = sys.argv[1]
 loggedAt = sys.argv[2]
+timestamp = sys.argv[3]
 
 inputFile = "template/testing-tool-device-configurations.json"
-outputFile = "prepared/testing-tool-device-configurations.json"
+outputFile = f'prepared/{timestamp}-testing-tool-device-configurations.json'
 
 jsonFile = open(inputFile, "r")
 data = json.load(jsonFile)

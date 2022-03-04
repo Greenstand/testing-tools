@@ -12,63 +12,78 @@ CAPTURE_UUID=$(generate_uuid)
 SESSION_UUID=$(generate_uuid)
 WALLET_REGISTRATION_UUID=$(generate_uuid)
 EPOCH=$(python3 scripts/iso8601.py)
+WALLET=$(python3 scripts/rand-string.py)
 
 printf "%30s %s\n" "message_id:" $MESSAGE_UUID
-printf "%30s %s\n" "survey_id:" $SURVEY_UUID
 printf "%30s %s\n" "device_config_id:" $DEVICE_CONFIGURATION_UUID
 printf "%30s %s\n" "session_id:" $SESSION_UUID
 printf "%30s %s\n" "wallet_registration_id:" $WALLET_REGISTRATION_UUID
 printf "%30s %s\n" "capture_id:" $CAPTURE_UUID
+printf "%30s %s\n" "wallet:" $WALLET
 printf "%30s %s\n" "timestamp:" $EPOCH
 
 # prepare messages data
+messageTimestamp=$(date '+%s')
 python3 scripts/prepare-messages.py \
-  $MESSAGE_UUID $SURVEY_UUID $EPOCH
+  $MESSAGE_UUID $EPOCH $messageTimestamp
+
+sleep 1
 
 # prepare wallet registration data
+walletRegistrationTimestamp=$(date '+%s')
 python3 scripts/prepare-wallet-registrations.py \
-  $WALLET_REGISTRATION_UUID $DEVICE_CONFIGURATION_UUID $EPOCH
+  $WALLET_REGISTRATION_UUID $WALLET $EPOCH $walletRegistrationTimestamp
 
-# prepare captures data
-python3 scripts/prepare-captures.py \
-  $CAPTURE_UUID $SESSION_UUID $EPOCH
+sleep 1
+
 
 # prepare device config data
+deviceConfigTimestamp=$(date '+%s')
 python3 scripts/prepare-device-configurations.py \
-  $DEVICE_CONFIGURATION_UUID $EPOCH
+  $DEVICE_CONFIGURATION_UUID $EPOCH $deviceConfigTimestamp
+
+sleep 1
 
 # prepare sessions data
+sessionTimestamp=$(date '+%s')
 python3 scripts/prepare-sessions.py \
-  $SESSION_UUID $DEVICE_CONFIGURATION_UUID
+  $SESSION_UUID $DEVICE_CONFIGURATION_UUID $WALLET_REGISTRATION_UUID $sessionTimestamp
+
+sleep 1
+
+# prepare captures data
+captureTimestamp=$(date '+%s')
+python3 scripts/prepare-captures.py \
+  $CAPTURE_UUID $SESSION_UUID $EPOCH $captureTimestamp
 
 # upload it
-echo "Sending captures data..."
-aws s3 cp --profile treetracker-$ENV-env \
-  prepared/testing-tool-captures.json \
-  s3://treetracker-$ENV-batch-uploads
-echo
-
 echo "Sending wallet registrations data..."
 aws s3 cp --profile treetracker-$ENV-env \
-  prepared/testing-tool-wallet-registrations.json \
+  prepared/$walletRegistrationTimestamp-testing-tool-wallet-registrations.json \
   s3://treetracker-$ENV-batch-uploads
 echo
 
 echo "Sending device configurations data..."
 aws s3 cp --profile treetracker-$ENV-env \
-  prepared/testing-tool-device-configurations.json \
+  prepared/$deviceConfigTimestamp-testing-tool-device-configurations.json \
   s3://treetracker-$ENV-batch-uploads
 echo
 
 echo "Sending sessions data..."
 aws s3 cp --profile treetracker-$ENV-env \
-  prepared/testing-tool-sessions.json \
+  prepared/$sessionTimestamp-testing-tool-sessions.json \
+  s3://treetracker-$ENV-batch-uploads
+echo
+
+echo "Sending captures data..."
+aws s3 cp --profile treetracker-$ENV-env \
+  prepared/$captureTimestamp-testing-tool-captures.json \
   s3://treetracker-$ENV-batch-uploads
 echo
 
 echo "Sending messages data..."
 aws s3 cp --profile treetracker-$ENV-env \
-  prepared/testing-tool-messages.json \
+  prepared/$messageTimestamp-testing-tool-messages.json \
   s3://treetracker-$ENV-batch-uploads
 echo
 
@@ -76,10 +91,6 @@ echo "Finished sending data to aws"
 
 echo
 . ./scripts/create-cron-job.sh
-echo
-
-echo "waiting for cron job to finish..."
-sleep 5
 echo
 
 . ./scripts/request-data.sh

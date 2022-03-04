@@ -1,0 +1,17 @@
+{
+  "registrations": [
+    {
+      "planter_identifier": "PLANTER_IDENTIFIER",
+      "first_name": "naruto",
+      "last_name": "uzumaki",
+      "phone": null,
+      "email": null,
+      "organization": "team 7",
+      "device_identifier": "DEVICE_IDENTIFIER",
+      "record_uuid": "4933417be8ba4482a1b7590a7a8249d9",
+      "image_url": "https://treetracker-test-images.s3.eu-central-1.amazonaws.com/2021.05.05.17.30.58_37.84481550803357_-122.25722830534376_fe061d0c-7912-402c-a8b3-bc8cc677e229_IMG_20210127_152031_2061776106836885603.jpg",
+      "lat": -90,
+      "lon": 44.78
+    }
+  ]
+}

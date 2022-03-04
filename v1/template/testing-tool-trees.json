@@ -1,0 +1,31 @@
+{
+  "trees": [
+    {
+      "lat": 37.84492259,
+      "lon": -122.2571481,
+      "note": "My Note",
+      "uuid": "TREE_UUID",
+      "user_id": 1,
+      "image_url": "https://treetracker-dev-images.s3.eu-central-1.amazonaws.com/2022.01.09.23.36.48_0.0_0.0_08f832dd-080a-4e5e-be62-31b0328771a5_IMG_20220109_232830_2688215598134780956.jpg",
+      "attributes": [
+        {
+          "key": "abs_step_count",
+          "value": "-1"
+        },
+        {
+          "key": "delta_step_count",
+          "value": "0"
+        },
+        {
+          "key": "rotation_matrix",
+          "value": [1, 2, 3, 4, 5]
+        }
+      ],
+      "timestamp": "TREE_TIMESTAMP",
+      "sequence_id": 3,
+      "device_identifier": "DEVICE_IDENTIFIER",
+      "planter_photo_url": "https://treetracker-dev-images.s3.eu-central-1.amazonaws.com/2022.01.09.23.36.44_0.0_0.0_c7c3a2d3-1720-40fc-82e5-6b448c84398f_IMG_20220109_232809_5991583241089076809.jpg",
+      "planter_identifier": "PLANTER_IDENTIFIER"
+    }
+  ]
+}

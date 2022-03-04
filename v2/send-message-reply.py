@@ -10,7 +10,7 @@ api = 'https://dev-k8s.treetracker.org/messaging/'
 try:
     recipientHandle = sys.argv[1]
 except:
-    recipientHandle = "handle2"
+    recipientHandle = "admin"
 
 try:
     authorHandle = sys.argv[2]
@@ -48,10 +48,9 @@ print(json.dumps(latestMessage, indent=2, sort_keys=True))
 
 
 # generate reply
-surveyId = latestMessage['survey']['id']
-
 message = {}
-message["survey_id"] = surveyId
+if latestMessage['survey'] is not None:
+  message["survey_id"] = latestMessage['survey']['id']
 message["type"] = "message"
 message["recipient_handle"] = recipientHandle
 message["author_handle"] = authorHandle

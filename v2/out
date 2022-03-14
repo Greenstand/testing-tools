@@ -1,0 +1,550 @@
+CURRENT   NAME                                     CLUSTER                                  AUTHINFO                                       NAMESPACE
+          do-nyc1-prod-k8s-treetracker             do-nyc1-prod-k8s-treetracker             do-nyc1-prod-k8s-treetracker-admin             
+          do-nyc1-treetracker-cluster-production   do-nyc1-treetracker-cluster-production   do-nyc1-treetracker-cluster-production-admin   
+          do-sfo2-dev-k8s-treetracker              do-sfo2-dev-k8s-treetracker              do-sfo2-dev-k8s-treetracker-admin              
+*         do-sfo2-test-k8s-treetracker             do-sfo2-test-k8s-treetracker             do-sfo2-test-k8s-treetracker-admin             
+          test                                                                                                                             
+job.batch/bulk-pack-processor-manual-6aa1edfa-c81c-4ea6-adf3-74f5b1ad0ca9 created
+job.batch/bulk-pack-processor-manual-6aa1edfa-c81c-4ea6-adf3-74f5b1ad0ca9 condition met
+processing key: 1646265421-testing-tool-wallet-registrations.json
+bulk pack format version 2 detected
+processing v2 wallet_registrations
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/wallet_registrations',
+  data: {
+    id: 'd3f7fd5d-86c5-495b-9b90-c0d07a1b0e4b',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    email: 'kolz@obk.com',
+    phone: '12312312',
+    wallet: '',
+    last_name: 'oaks',
+    first_name: 'matt',
+    registered_at: '2022-03-02T23:57:00+0000',
+    user_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-api.treetracker-api/grower_accounts',
+    data: '{"wallet":"","first_name":"matt","last_name":"oaks","email":"kolz@obk.com","phone":"12312312","lat":37.84492259,"lon":-122.2571481,"image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg","first_registration_at":"2022-03-02T23:57:00.000Z"}',
+    code: 422,
+    message: '"wallet" is not allowed to be empty'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646265424-testing-tool-sessions.json
+bulk pack format version 2 detected
+processing v2 sessions
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/sessions',
+  data: {
+    id: '4c93de40-2b2b-48dd-a390-c891f073ad77',
+    track_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    organization: 'org',
+    target_wallet: 'somewallet',
+    check_in_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    device_configuration_id: 'b9b254de-8b77-4c56-9902-6ca5e1c85008',
+    originating_wallet_registration_id: 'd3f7fd5d-86c5-495b-9b90-c0d07a1b0e4b'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/session',
+    data: '{"id":"4c93de40-2b2b-48dd-a390-c891f073ad77","device_configuration_id":"b9b254de-8b77-4c56-9902-6ca5e1c85008","originating_wallet_registration_id":"d3f7fd5d-86c5-495b-9b90-c0d07a1b0e4b","target_wallet":"somewallet","check_in_photo_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","track_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","organization":"org"}',
+    code: 500,
+    message: 'Unknown error (insert into "session" ("check_in_photo_url", "created_at", "device_configuration_id", "id", "organization", "originating_wallet_registration_id", "target_wallet", "track_url") values ($1, $2, $3, $4, $5, $6, $7, $8) returning * - insert or update on table "session" violates foreign key constraint "session_originating_wallet_registration_id_fkey")'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646265643-testing-tool-wallet-registrations.json
+bulk pack format version 2 detected
+processing v2 wallet_registrations
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/wallet_registrations',
+  data: {
+    id: '4b3753ed-d1ff-49b2-ba23-72eb2ad6017d',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    email: 'kolz@obk.com',
+    phone: '12312312',
+    wallet: '',
+    last_name: 'oaks',
+    first_name: 'matt',
+    registered_at: '2022-03-03T00:00:42+0000',
+    user_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-api.treetracker-api/grower_accounts',
+    data: '{"wallet":"","first_name":"matt","last_name":"oaks","email":"kolz@obk.com","phone":"12312312","lat":37.84492259,"lon":-122.2571481,"image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg","first_registration_at":"2022-03-03T00:00:42.000Z"}',
+    code: 422,
+    message: '"wallet" is not allowed to be empty'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646265646-testing-tool-sessions.json
+bulk pack format version 2 detected
+processing v2 sessions
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/sessions',
+  data: {
+    id: 'dc5a22c6-b35e-4b23-bb44-076c9520323d',
+    track_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    organization: 'org',
+    target_wallet: 'somewallet',
+    check_in_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    device_configuration_id: 'a053e34b-f72c-4c21-8ef1-e7912a623d20',
+    originating_wallet_registration_id: '4b3753ed-d1ff-49b2-ba23-72eb2ad6017d'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/session',
+    data: '{"id":"dc5a22c6-b35e-4b23-bb44-076c9520323d","device_configuration_id":"a053e34b-f72c-4c21-8ef1-e7912a623d20","originating_wallet_registration_id":"4b3753ed-d1ff-49b2-ba23-72eb2ad6017d","target_wallet":"somewallet","check_in_photo_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","track_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","organization":"org"}',
+    code: 500,
+    message: 'Unknown error (insert into "session" ("check_in_photo_url", "created_at", "device_configuration_id", "id", "organization", "originating_wallet_registration_id", "target_wallet", "track_url") values ($1, $2, $3, $4, $5, $6, $7, $8) returning * - insert or update on table "session" violates foreign key constraint "session_originating_wallet_registration_id_fkey")'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646265647-testing-tool-captures.json
+bulk pack format version 2 detected
+processing v2 captures
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/captures',
+  data: {
+    id: 'b5157cf3-ab68-41d6-98eb-bc3538e166fc',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    note: '',
+    image_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    session_id: 'dc5a22c6-b35e-4b23-bb44-076c9520323d',
+    captured_at: '2022-03-03T00:00:42+0000',
+    abs_step_count: 1,
+    rotation_matrix: [ 1, 2, 3, 4 ],
+    delta_step_count: 1,
+    extra_attributes: [ [Object], [Object] ]
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/raw-captures',
+    data: '{"id":"b5157cf3-ab68-41d6-98eb-bc3538e166fc","session_id":"dc5a22c6-b35e-4b23-bb44-076c9520323d","image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","lat":37.84492259,"lon":-122.2571481,"note":"","abs_step_count":1,"delta_step_count":1,"rotation_matrix":[1,2,3,4],"captured_at":"2022-03-03T00:00:42.000Z"}',
+    code: 409,
+    message: 'A session resource with id, dc5a22c6-b35e-4b23-bb44-076c9520323d has yet to be created, kindly retry later'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646266084-testing-tool-wallet-registrations.json
+bulk pack format version 2 detected
+processing v2 wallet_registrations
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/wallet_registrations',
+  data: {
+    id: '971ce4f3-a706-47f2-84a7-8feefa365fc9',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    email: 'kolz@obk.com',
+    phone: '12312312',
+    wallet: '',
+    last_name: 'oaks',
+    first_name: 'matt',
+    registered_at: '2022-03-03T00:08:03+0000',
+    user_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-api.treetracker-api/grower_accounts',
+    data: '{"wallet":"","first_name":"matt","last_name":"oaks","email":"kolz@obk.com","phone":"12312312","lat":37.84492259,"lon":-122.2571481,"image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg","first_registration_at":"2022-03-03T00:08:03.000Z"}',
+    code: 422,
+    message: '"wallet" is not allowed to be empty'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646266086-testing-tool-sessions.json
+bulk pack format version 2 detected
+processing v2 sessions
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/sessions',
+  data: {
+    id: 'b402e2b0-158b-4118-aea6-f59c6c1a001b',
+    track_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    organization: 'org',
+    target_wallet: 'somewallet',
+    check_in_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    device_configuration_id: '6749d184-5fa6-4b00-941e-7cd02b5f1ba8',
+    originating_wallet_registration_id: '971ce4f3-a706-47f2-84a7-8feefa365fc9'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/session',
+    data: '{"id":"b402e2b0-158b-4118-aea6-f59c6c1a001b","device_configuration_id":"6749d184-5fa6-4b00-941e-7cd02b5f1ba8","originating_wallet_registration_id":"971ce4f3-a706-47f2-84a7-8feefa365fc9","target_wallet":"somewallet","check_in_photo_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","track_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","organization":"org"}',
+    code: 500,
+    message: 'Unknown error (insert into "session" ("check_in_photo_url", "created_at", "device_configuration_id", "id", "organization", "originating_wallet_registration_id", "target_wallet", "track_url") values ($1, $2, $3, $4, $5, $6, $7, $8) returning * - insert or update on table "session" violates foreign key constraint "session_originating_wallet_registration_id_fkey")'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646266087-testing-tool-captures.json
+bulk pack format version 2 detected
+processing v2 captures
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/captures',
+  data: {
+    id: '30f6b83e-b98e-4b17-aae0-a3ffb6bd4bbd',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    note: '',
+    image_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    session_id: 'b402e2b0-158b-4118-aea6-f59c6c1a001b',
+    captured_at: '2022-03-03T00:08:03+0000',
+    abs_step_count: 1,
+    rotation_matrix: [ 1, 2, 3, 4 ],
+    delta_step_count: 1,
+    extra_attributes: [ [Object], [Object] ]
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/raw-captures',
+    data: '{"id":"30f6b83e-b98e-4b17-aae0-a3ffb6bd4bbd","session_id":"b402e2b0-158b-4118-aea6-f59c6c1a001b","image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","lat":37.84492259,"lon":-122.2571481,"note":"","abs_step_count":1,"delta_step_count":1,"rotation_matrix":[1,2,3,4],"captured_at":"2022-03-03T00:08:03.000Z"}',
+    code: 409,
+    message: 'A session resource with id, b402e2b0-158b-4118-aea6-f59c6c1a001b has yet to be created, kindly retry later'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646266314-testing-tool-wallet-registrations.json
+bulk pack format version 2 detected
+processing v2 wallet_registrations
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/wallet_registrations',
+  data: {
+    id: 'dbd3e583-b77a-4909-b742-293d61d4f2df',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    email: 'kolz@obk.com',
+    phone: '12312312',
+    wallet: '',
+    last_name: 'oaks',
+    first_name: 'matt',
+    registered_at: '2022-03-03T00:11:53+0000',
+    user_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-api.treetracker-api/grower_accounts',
+    data: '{"wallet":"","first_name":"matt","last_name":"oaks","email":"kolz@obk.com","phone":"12312312","lat":37.84492259,"lon":-122.2571481,"image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.41_37.8449304_-122.25714411_348e08db-8fc5-4b67-bb24-eecf294c0dc7_IMG_20200721_183825_8005989450661286921.jpg","first_registration_at":"2022-03-03T00:11:53.000Z"}',
+    code: 422,
+    message: '"wallet" is not allowed to be empty'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646266317-testing-tool-sessions.json
+bulk pack format version 2 detected
+processing v2 sessions
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/sessions',
+  data: {
+    id: 'f629e3ed-75b6-4785-bc45-6b9d1184fc56',
+    track_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    organization: 'org',
+    target_wallet: 'somewallet',
+    check_in_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    device_configuration_id: 'f431ad1e-1efc-4b0c-97dc-3818ed58d113',
+    originating_wallet_registration_id: 'dbd3e583-b77a-4909-b742-293d61d4f2df'
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/session',
+    data: '{"id":"f629e3ed-75b6-4785-bc45-6b9d1184fc56","device_configuration_id":"f431ad1e-1efc-4b0c-97dc-3818ed58d113","originating_wallet_registration_id":"dbd3e583-b77a-4909-b742-293d61d4f2df","target_wallet":"somewallet","check_in_photo_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","track_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","organization":"org"}',
+    code: 500,
+    message: 'Unknown error (insert into "session" ("check_in_photo_url", "created_at", "device_configuration_id", "id", "organization", "originating_wallet_registration_id", "target_wallet", "track_url") values ($1, $2, $3, $4, $5, $6, $7, $8) returning * - insert or update on table "session" violates foreign key constraint "session_originating_wallet_registration_id_fkey")'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 1646266318-testing-tool-captures.json
+bulk pack format version 2 detected
+processing v2 captures
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/captures',
+  data: {
+    id: 'a8b06f73-67c0-407f-b207-dfa4b58d2c51',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    note: '',
+    image_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    session_id: 'f629e3ed-75b6-4785-bc45-6b9d1184fc56',
+    captured_at: '2022-03-03T00:11:53+0000',
+    abs_step_count: 1,
+    rotation_matrix: [ 1, 2, 3, 4 ],
+    delta_step_count: 1,
+    extra_attributes: [ [Object], [Object] ]
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/raw-captures',
+    data: '{"id":"a8b06f73-67c0-407f-b207-dfa4b58d2c51","session_id":"f629e3ed-75b6-4785-bc45-6b9d1184fc56","image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","lat":37.84492259,"lon":-122.2571481,"note":"","abs_step_count":1,"delta_step_count":1,"rotation_matrix":[1,2,3,4],"captured_at":"2022-03-03T00:11:53.000Z"}',
+    code: 409,
+    message: 'A session resource with id, f629e3ed-75b6-4785-bc45-6b9d1184fc56 has yet to be created, kindly retry later'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 2022.01.01.09.38.38_23d69272-b687-4063-b4cd-ecbe537480e5_ae8a1b59063567fd745bf3515b617189
+bulk pack format version 1 detected
+processing v1 devices
+v1 devices done
+processing v1 trees
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/v1/tree',
+  data: {
+    lat: 0.6517440000000001,
+    lon: 37.666492999999996,
+    note: '',
+    uuid: '214d09e0-ea89-4564-b9fc-5fff37f160ff',
+    user_id: 1,
+    image_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2022.01.01.09.38.12_0.6517440000000001_37.666492999999996_ae6fb387-c683-47f6-b839-e755f656b77a_IMG_20211221_123954_8310844545094814019.jpg',
+    timestamp: 1640079666,
+    attributes: [ [Object], [Object], [Object], [Object] ],
+    sequence_id: 1718,
+    gps_accuracy: 0,
+    device_identifier: '6b29089a74efba22',
+    planter_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2021.12.08.12.06.53_0.6523733333333334_37.668609999999994_6eb0faf0-8972-4325-847b-e895770184e8_IMG_20211208_091152_4557129840695568737.jpg',
+    planter_identifier: 'masiansheila4@gmail.com'
+  },
+  response: {
+    code: 422,
+    message: 'The planter information must have been inserted before the raw_capture can be created'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 2022.01.02.12.25.41_4bee3aee-044c-4458-84d2-233674c35519_c888e364472021cb846f745af0cf2019
+bulk pack format version 1 detected
+processing v1 devices
+v1 devices done
+processing v1 trees
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/v1/tree',
+  data: {
+    lat: -4.762688999999999,
+    lon: 38.326466,
+    note: '',
+    uuid: '9f1de664-fbf4-4daa-abb4-124bceb1d4bd',
+    user_id: 2,
+    image_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2021.12.29.17.53.52_-4.762688999999999_38.326466_8d6aaab0-4876-427b-a691-90379d6249d0_IMG_20211229_154328_4094353166480239707.jpg',
+    timestamp: 1640781811,
+    attributes: [ [Object], [Object], [Object], [Object] ],
+    sequence_id: 7192,
+    gps_accuracy: 0,
+    device_identifier: '42498a9c36603029',
+    planter_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2021.12.22.18.34.13_-5.244394999999999_38.68472166666666_cb236b82-a2c9-4ae0-b960-e81412ca8deb_IMG_20211222_105409_5616097593073156645.jpg',
+    planter_identifier: 'treetrack@sustainably.run'
+  },
+  response: {
+    code: 422,
+    message: 'The planter information must have been inserted before the raw_capture can be created'
+  }
+}
+===================================
+
+
+
+
+
+processing key: 2022.01.02.12.27.07_73e2aabf-6c9d-4e7d-8b41-b3231c4ffd40_b47c5cf0f5f436094c839b262ec54b20
+bulk pack format version 1 detected
+processing v1 devices
+v1 devices done
+processing v1 trees
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/v1/tree',
+  data: {
+    lat: -4.766253999999998,
+    lon: 38.30175666666663,
+    note: '',
+    uuid: '6bf39603-7909-4bc6-9c26-976e0bed0503',
+    user_id: 2,
+    image_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2022.01.02.12.25.44_-4.766253999999998_38.30175666666663_a6839ab4-c02f-400f-b984-3b661a0d8cdd_IMG_20220102_113140_898231901590931625.jpg',
+    timestamp: 1641112313,
+    attributes: [ [Object], [Object], [Object], [Object] ],
+    sequence_id: 7246,
+    gps_accuracy: 0,
+    device_identifier: '42498a9c36603029',
+    planter_photo_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2021.12.22.18.34.13_-5.244394999999999_38.68472166666666_cb236b82-a2c9-4ae0-b960-e81412ca8deb_IMG_20211222_105409_5616097593073156645.jpg',
+    planter_identifier: 'treetrack@sustainably.run'
+  },
+  response: {
+    code: 422,
+    message: 'The planter information must have been inserted before the raw_capture can be created'
+  }
+}
+===================================
+
+
+
+
+
+processing key: testing-tool-captures.json
+bulk pack format version 2 detected
+processing v2 captures
+
+
+
+
+
+===================================
+{
+  transformerUrl: 'http://bulk-pack-transformer-v2.bulk-pack-services/captures',
+  data: {
+    id: 'db097d16-43fc-4a1e-979e-e05e0bfb57f4',
+    lat: 37.84492259,
+    lon: -122.2571481,
+    note: '',
+    image_url: 'https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg',
+    session_id: '65d0331d-a83d-41c6-bf7c-cd4a3c12d502',
+    captured_at: '2022-03-01T23:00:30+0000',
+    abs_step_count: 1,
+    rotation_matrix: [ 1, 2, 3, 4 ],
+    delta_step_count: 1,
+    extra_attributes: [ [Object], [Object] ]
+  },
+  response: {
+    microserviceUrl: 'http://treetracker-field-data.field-data-api/raw-captures',
+    data: '{"id":"db097d16-43fc-4a1e-979e-e05e0bfb57f4","session_id":"65d0331d-a83d-41c6-bf7c-cd4a3c12d502","image_url":"https://treetracker-production-images.s3.eu-central-1.amazonaws.com/2020.07.21.18.38.46_37.84492259_-122.2571481_42bc5f59-74e2-4c09-b182-ef67bc93d3d1_IMG_20200721_183835_8235710469335931789.jpg","lat":37.84492259,"lon":-122.2571481,"note":"","abs_step_count":1,"delta_step_count":1,"rotation_matrix":[1,2,3,4],"captured_at":"2022-03-01T23:00:30.000Z"}',
+    code: 409,
+    message: 'A session resource with id, 65d0331d-a83d-41c6-bf7c-cd4a3c12d502 has yet to be created, kindly retry later'
+  }
+}
+===================================
+
+
+
+
+
+done

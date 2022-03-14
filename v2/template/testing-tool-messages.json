@@ -2,13 +2,11 @@
   "pack_format_version": "2",
   "messages": [
     {
-      "message_uuid": "MESSAGE_UUID",
+      "id": "MESSAGE_UUID",
       "author_handle": "handle2",
       "recipient_handle": "admin",
-      "body": "message body",
-      "subject": "subject of the message",
+      "body": "e2e message body",
       "composed_at": "MESSAGE_TIMESTAMP",
-      "answers": ["testing-tool", "is working"],
       "type": "message"
     }
   ]

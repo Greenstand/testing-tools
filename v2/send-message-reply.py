@@ -40,7 +40,7 @@ except:
 
 # -- get latest message --
 
-getLatestMessageRoute = '{api}message?handle={author}&limit=1'.format(
+getLatestMessageRoute = '{api}message?handle={author}&limit=1&sort_by=composed_at&order=desc'.format(
     api=api,
     author=recipientHandle,
 )
@@ -70,7 +70,6 @@ if latestMessage['survey'] is not None:
 message["type"] = "message"
 message["recipient_handle"] = recipientHandle
 message["author_handle"] = authorHandle
-message["subject"] = "message subject"
 message["body"] = messageBody
 
 print("sending this message:")
